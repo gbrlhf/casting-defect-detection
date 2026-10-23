@@ -117,7 +117,7 @@ casting-defect-detection/
 
 ---
 
-## 📚 References
+## References
 
 **Casting defect detection & industrial inspection**
 
@@ -146,7 +146,7 @@ casting-defect-detection/
 
 Dataset: *Real-life Industrial Dataset of Casting Product* by Ravirajsinh Dabhi, published on Kaggle. Please refer to the dataset page for its license and terms of use.
 
-## 👤 Author
+## Author
 
 **Gibral Haikal Faiz**, Industrial Informatics Engineering Student, Politeknik Manufaktur Bandung
 [LinkedIn](https://www.linkedin.com/in/gibral-haikal-faiz-46449a319/) · [GitHub](https://github.com/gbrlhf)
