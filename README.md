@@ -120,6 +120,7 @@ The dataset contains **7,348 images**, split into **6,633 for training** and **7
 Visually, **OK products** have clean, well-defined outer and inner rims with few scratches or small surface marks. **Defective products** show damage on the outer rim, small chips and scratches across the surface, and **irregular, non-circular shapes**. Most differences between the two classes appear on the **outer and inner rims**, which makes these areas the clearest visual indicators of a defect. Grad-CAM will be used later to check whether the model also focuses on these regions.
 
 | | |
+|---|---|
 | ![Class distribution](reports/figures/01_class_distribution.png) | ![Average images](reports/figures/04_average_images.png) |
 | ![OK samples](reports/figures/02_samples_ok.png) | ![Defective samples](reports/figures/02_samples_defective.png) |
 
