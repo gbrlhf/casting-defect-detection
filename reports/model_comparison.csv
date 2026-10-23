@@ -1,0 +1,5 @@
+model,accuracy,precision,recall (defective),f1,auc,ms_per_image,params (M)
+resnet50v2,0.9958,0.9956,0.9978,0.9967,0.9999,5.191,23.5668
+mobilenetv2,0.9958,1.0,0.9934,0.9967,1.0,2.8663,2.2593
+efficientnetb0,0.9902,1.0,0.9845,0.9922,0.9986,4.7801,4.0509
+baseline_cnn,0.8392,0.8301,0.9382,0.8808,0.9105,0.5709,0.0934
