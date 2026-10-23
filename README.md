@@ -126,6 +126,34 @@ Visually, **OK products** have clean, well-defined outer and inner rims with few
 
 ### TRAINING RESULT ([notebook](notebooks/02_training.ipynb))
 
+Four models were compared on the 715-image test set. All three transfer-learning models reached around 99% accuracy, far above the baseline CNN trained from scratch (~84% accuracy), showing that ImageNet-pretrained features transfer well to casting inspection.
+
+ResNet50V2 was selected as the best model because it achieved the highest defective recall (fewest missed defects) together with the best F1-score. MobileNetV2 and EfficientNet-B0 reached slightly higher precision but missed a few more defective parts. Since a missed defect is costlier than a false alarm, recall was prioritized.
+
+Trade-off: ResNet50V2 is also the largest and slowest model. For deployment on an edge device next to a production line, MobileNetV2 remains a strong alternative with nearly identical performance at a fraction of the size.
+
+### Model Comparison ([notebook](notebooks/02_training.ipynb))
+
+Four models were evaluated on the **715-image test set** (453 defective, 262 OK) at the default threshold of 0.5:
+
+| Model | Accuracy | Precision | Recall (defective) | F1 | AUC | Missed defects | False alarms | ms / image | Params (M) |
+|---|---|---|---|---|---|---|---|---|---|
+| **ResNet50V2** ✅ | **99.58%** | 99.56% | **99.78%** | **99.67%** | 0.9999 | **1** | 2 | 5.19 | 23.57 |
+| MobileNetV2 | **99.58%** | **100%** | 99.34% | **99.67%** | 1.0000 | 3 | **0** | 2.87 | 2.26 |
+| EfficientNet-B0 | 99.02% | **100%** | 98.45% | 99.22% | 0.9986 | 7 | **0** | 4.78 | 4.05 |
+| Baseline CNN | 83.92% | 83.01% | 93.82% | 88.08% | 0.9105 | 28 | 87 | **0.57** | **0.09** |
+
+*Missed defects and false alarms are derived from recall, precision, and the test set size. Inference time measured on a Google Colab T4 GPU.*
+
+![Model comparison](reports/figures/07_model_comparison.png)
+
+**Key findings**
+
+- **Transfer learning makes a large difference.** All three pretrained models reached about 99% accuracy, compared with 83.9% for the baseline CNN trained from scratch. The baseline let 28 defective parts through and raised 87 false alarms.
+- **ResNet50V2 was selected as the best model.** It tied with MobileNetV2 on accuracy and F1, but had the **highest defective recall**, missing only **1 of 453** defective parts. Since a missed defect is costlier than a false alarm, recall decided the tie.
+- **MobileNetV2 is the practical alternative for deployment.** It missed 2 more defects than ResNet50V2 but produced **zero false alarms**, while being about **10× smaller** and **1.8× faster**. For an edge device next to a production line, this trade-off may be worth it; the final choice depends on the factory's cost of a missed defect versus a false alarm.
+
+> ⚠️ **Note:** near-perfect scores are common on this dataset, which is clean and was augmented by its author, so similar images can appear in both train and test. Performance on a real production line with different lighting and parts would need to be validated with new data.
 
 ---
 
