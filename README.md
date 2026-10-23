@@ -113,7 +113,19 @@ casting-defect-detection/
 
 ## Results
 
-*To be added after training and evaluation.*
+### EDA Summary ([notebook](notebooks/01_eda.ipynb))
+
+The dataset contains **7,348 images**, split into **6,633 for training** and **715 for testing**. Defective products slightly outnumber OK products, so the dataset is mildly imbalanced. To prevent the model from favoring the majority class, training will use **class weights**, and evaluation will focus on **recall for the defective class** rather than accuracy alone.
+
+Visually, **OK products** have clean, well-defined outer and inner rims with few scratches or small surface marks. **Defective products** show damage on the outer rim, small chips and scratches across the surface, and **irregular, non-circular shapes**. Most differences between the two classes appear on the **outer and inner rims**, which makes these areas the clearest visual indicators of a defect. Grad-CAM will be used later to check whether the model also focuses on these regions.
+
+| | |
+|---|---|
+| ![Class distribution](reports/figures/01_class_distribution.png) | ![Average images](reports/figures/04_average_images.png) |
+| ![OK samples](reports/figures/02_samples_ok.png) | ![Defective samples](reports/figures/02_samples_defective.png) |
+
+### TRAINING RESULT ([notebook](notebooks/02_training.ipynb))
+
 
 ---
 
