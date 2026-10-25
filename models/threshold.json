@@ -1,0 +1,5 @@
+{
+  "threshold": 0.01,
+  "chosen_on": "validation",
+  "target_recall": 1.0
+}
