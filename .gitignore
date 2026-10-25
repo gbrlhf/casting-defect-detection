@@ -1,0 +1,48 @@
+# Large model files: keep them on Google Drive or Hugging Face, not in Git
+*.keras
+*.h5
+*.hdf5
+*.weights.h5
+*.pb
+*.onnx
+*.tflite
+*.pt
+*.pth
+models/saved_model/
+
+# Datasets / archives (download separately, e.g. from Kaggle)
+data/
+dataset/
+casting_data/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Python / notebooks
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# Secrets / local config (never commit)
+.streamlit/secrets.toml
+.env
+.env.*
+
+# Training logs
+logs/
+runs/
+lightning_logs/
+tensorboard/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
