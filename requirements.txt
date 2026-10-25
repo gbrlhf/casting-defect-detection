@@ -1,0 +1,10 @@
+# Demo app (Streamlit). Notebooks run on Google Colab, which already has these installed.
+# Keep the TensorFlow version close to the one used in Colab to train the model
+# (check with: import tensorflow as tf; print(tf.__version__)).
+tensorflow-cpu>=2.16
+streamlit>=1.40
+numpy
+pandas
+pillow
+matplotlib
+huggingface_hub
